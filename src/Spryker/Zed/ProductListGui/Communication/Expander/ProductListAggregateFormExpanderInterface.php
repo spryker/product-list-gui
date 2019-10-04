@@ -15,15 +15,7 @@ interface ProductListAggregateFormExpanderInterface
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
-     * @return \Symfony\Component\Form\FormBuilderInterface
+     * @return void
      */
-    public function expandWithProductListCategoryRelationForm(FormBuilderInterface $builder, array $options): FormBuilderInterface;
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param array $options
-     *
-     * @return \Symfony\Component\Form\FormBuilderInterface
-     */
-    public function expandWithProductListProductConcreteRelationForm(FormBuilderInterface $builder, array $options): FormBuilderInterface;
+    public function expandWithProductListAssignmentForms(FormBuilderInterface $builder, array $options): void;
 }
