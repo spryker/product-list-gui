@@ -1,3 +1,4 @@
+var bootstrap = require('bootstrap');
 var clickedButtonUrl = null;
 
 $(document).ready(function () {
@@ -6,13 +7,8 @@ $(document).ready(function () {
 
         clickedButtonUrl = $(this).attr('href');
 
-        if (window.spryker?.isBootstrapVersionLatest) {
-            var bootstrap = window.spryker.bootstrap;
-            var confirmModal = new bootstrap.Modal($('#confirmation-modal-window'));
-            confirmModal.show();
-        } else {
-            $('#confirmation-modal-window').modal('show');
-        }
+        var confirmModal = new bootstrap.Modal($('#confirmation-modal-window'));
+        confirmModal.show();
     });
 
     $('.js-btn-confirm').on('click', function () {
