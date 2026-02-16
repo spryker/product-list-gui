@@ -44,19 +44,20 @@ class ProductListAggregateFormExpander implements ProductListAggregateFormExpand
         $productIdsToBeAssignedData = $this->getFieldValue(ProductListProductConcreteRelationFormType::FIELD_PRODUCT_IDS_TO_BE_ASSIGNED, $formEvent);
         $productIdsToBeDeassignedData = $this->getFieldValue(ProductListProductConcreteRelationFormType::FIELD_PRODUCT_IDS_TO_BE_DEASSIGNED, $formEvent);
 
-        /** @var array<string|int> $assignedProductIds */
         $assignedProductIds = $assignedProductIdsData
             ? preg_split('/,/', $assignedProductIdsData, -1, PREG_SPLIT_NO_EMPTY)
             : [];
+        $assignedProductIds = $assignedProductIds ?: [];
 
-        /** @var array<string|int> $productIdsToBeAssigned */
         $productIdsToBeAssigned = $productIdsToBeAssignedData
             ? preg_split('/,/', $productIdsToBeAssignedData, -1, PREG_SPLIT_NO_EMPTY)
             : [];
-        /** @var array<string|int> $productIdsToBeDeassigned */
+        $productIdsToBeAssigned = $productIdsToBeAssigned ?: [];
+
         $productIdsToBeDeassigned = $productIdsToBeDeassignedData
             ? preg_split('/,/', $productIdsToBeDeassignedData, -1, PREG_SPLIT_NO_EMPTY)
             : [];
+        $productIdsToBeDeassigned = $productIdsToBeDeassigned ?: [];
 
         $assignedProductIds = array_unique(array_merge($assignedProductIds, $productIdsToBeAssigned));
         $assignedProductIds = array_diff($assignedProductIds, $productIdsToBeDeassigned);
