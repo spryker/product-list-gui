@@ -48,11 +48,6 @@ class ProductListCategoryRelationFormDataProvider
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param int|null $idProductList
-     *
-     * @return \Generated\Shared\Transfer\ProductListCategoryRelationTransfer
-     */
     public function getData(?int $idProductList = null): ProductListCategoryRelationTransfer
     {
         $productListCategoryRelationTransfer = new ProductListCategoryRelationTransfer();

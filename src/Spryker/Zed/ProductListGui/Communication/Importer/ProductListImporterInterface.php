@@ -12,12 +12,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 interface ProductListImporterInterface
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $productsConcreteCsv
-     * @param \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer $productConcreteRelationTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer
-     */
     public function importFromCsvFile(
         UploadedFile $productsConcreteCsv,
         ProductListProductConcreteRelationTransfer $productConcreteRelationTransfer

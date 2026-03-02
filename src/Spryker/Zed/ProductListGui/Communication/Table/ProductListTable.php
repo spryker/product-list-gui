@@ -45,10 +45,6 @@ class ProductListTable extends AbstractTable
      */
     protected $productListTablePluginExecutor;
 
-    /**
-     * @param \Orm\Zed\ProductList\Persistence\SpyProductListQuery $productListQuery
-     * @param \Spryker\Zed\ProductListGui\Communication\Table\PluginExecutor\ProductListTablePluginExecutorInterface $productListTablePluginExecutor
-     */
     public function __construct(
         SpyProductListQuery $productListQuery,
         ProductListTablePluginExecutorInterface $productListTablePluginExecutor
@@ -89,11 +85,6 @@ class ProductListTable extends AbstractTable
         return $results;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config = $this->setHeader($config);
@@ -120,11 +111,6 @@ class ProductListTable extends AbstractTable
         return $this->productListTablePluginExecutor->executeTableConfigExpanderPlugins($config);
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function setHeader(TableConfiguration $config): TableConfiguration
     {
         $baseData = [
@@ -142,11 +128,6 @@ class ProductListTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param array $item
-     *
-     * @return string
-     */
     protected function generateTypeLabels(array $item): string
     {
         if ($item[SpyProductListTableMap::COL_TYPE] === SpyProductListTableMap::COL_TYPE_WHITELIST) {
@@ -156,11 +137,6 @@ class ProductListTable extends AbstractTable
         return $this->generateLabel('Blacklist', 'label-danger');
     }
 
-    /**
-     * @param array $item
-     *
-     * @return string
-     */
     protected function buildLinks(array $item): string
     {
         $buttons = [];
@@ -221,11 +197,6 @@ class ProductListTable extends AbstractTable
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QueryJoinTransfer $queryJoinTransfer
-     *
-     * @return void
-     */
     protected function expandQueryWithRelation(QueryJoinTransfer $queryJoinTransfer): void
     {
         $this->productListQuery->join($queryJoinTransfer->getRelation(), $queryJoinTransfer->getJoinType());
@@ -238,11 +209,6 @@ class ProductListTable extends AbstractTable
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QueryJoinTransfer $queryJoinTransfer
-     *
-     * @return void
-     */
     protected function expandQueryWithoutRelation(QueryJoinTransfer $queryJoinTransfer): void
     {
         $this->productListQuery->addJoin(

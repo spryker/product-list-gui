@@ -34,9 +34,6 @@ class IndexController extends AbstractController
         ];
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function tableAction(): JsonResponse
     {
         $productListTable = $this->getFactory()->createProductListTable();

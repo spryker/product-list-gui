@@ -25,11 +25,6 @@ class ProductListUsedByTableProvider implements ProductListUsedByTableProviderIn
         $this->productListUsedByTableExpanderPlugins = $productListUsedByTableExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListTransfer $productListTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListUsedByTableTransfer
-     */
     public function getTableData(ProductListTransfer $productListTransfer): ProductListUsedByTableTransfer
     {
         $productListUsedByTableTransfer = (new ProductListUsedByTableTransfer())->setProductList($productListTransfer);
@@ -37,11 +32,6 @@ class ProductListUsedByTableProvider implements ProductListUsedByTableProviderIn
         return $this->expandProductListUsedByTableTransfer($productListUsedByTableTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListUsedByTableTransfer $productListUsedByTableTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListUsedByTableTransfer
-     */
     protected function expandProductListUsedByTableTransfer(
         ProductListUsedByTableTransfer $productListUsedByTableTransfer
     ): ProductListUsedByTableTransfer {

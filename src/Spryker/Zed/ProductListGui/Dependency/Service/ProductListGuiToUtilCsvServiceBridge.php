@@ -36,11 +36,6 @@ class ProductListGuiToUtilCsvServiceBridge implements ProductListGuiToUtilCsvSer
         return $this->utilCsvService->readUploadedFile($file);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CsvFileTransfer $csvFileTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
-     */
     public function exportFile(CsvFileTransfer $csvFileTransfer): StreamedResponse
     {
         return $this->utilCsvService->exportFile($csvFileTransfer);

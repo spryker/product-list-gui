@@ -25,11 +25,6 @@ class ProductListGuiToCategoryFacadeBridge implements ProductListGuiToCategoryFa
         $this->categoryFacade = $categoryFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryCollectionTransfer
-     */
     public function getAllCategoryCollection(LocaleTransfer $localeTransfer): CategoryCollectionTransfer
     {
         return $this->categoryFacade->getAllCategoryCollection($localeTransfer);

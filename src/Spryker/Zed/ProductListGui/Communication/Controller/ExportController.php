@@ -22,11 +22,6 @@ class ExportController extends AbstractController
      */
     public const PARAM_ID_PRODUCT_LIST = 'id-product-list';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function indexAction(Request $request): Response
     {
         $response = $this->getFactory()->createProductListExporter()->exportToCsvFile(
@@ -36,11 +31,6 @@ class ExportController extends AbstractController
         return $response->send();
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Generated\Shared\Transfer\ProductListTransfer
-     */
     protected function getProductList(Request $request): ProductListTransfer
     {
         $idProductList = $request->query->get(static::PARAM_ID_PRODUCT_LIST);

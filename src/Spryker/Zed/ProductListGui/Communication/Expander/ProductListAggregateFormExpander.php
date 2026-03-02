@@ -31,11 +31,6 @@ class ProductListAggregateFormExpander implements ProductListAggregateFormExpand
             ->addProductListProductConcreteRelationForm($builder);
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormEvent $formEvent
-     *
-     * @return void
-     */
     public function postSubmitEventHandler(FormEvent $formEvent): void
     {
         $data = $formEvent->getData();
@@ -104,11 +99,6 @@ class ProductListAggregateFormExpander implements ProductListAggregateFormExpand
         return $this;
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return void
-     */
     protected function addProductListProductConcreteRelationFormHelperFields(FormBuilderInterface $builder): void
     {
         $builder->add(

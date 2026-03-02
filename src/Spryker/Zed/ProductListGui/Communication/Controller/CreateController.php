@@ -65,9 +65,6 @@ class CreateController extends ProductListAbstractController
         return $this->viewResponse();
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function availableProductConcreteTableAction(): JsonResponse
     {
         $availableProductConcreteTable = $this->getFactory()->createAvailableProductConcreteTable();
@@ -77,9 +74,6 @@ class CreateController extends ProductListAbstractController
         );
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function assignedProductConcreteTableAction(): JsonResponse
     {
         $assignedProductConcreteTable = $this->getFactory()->createAssignedProductConcreteTable();
@@ -89,11 +83,6 @@ class CreateController extends ProductListAbstractController
         );
     }
 
-    /**
-     * @param int $idProductList
-     *
-     * @return string
-     */
     protected function getEditUrl(int $idProductList): string
     {
         $query = [

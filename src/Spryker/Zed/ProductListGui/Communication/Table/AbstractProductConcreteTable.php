@@ -65,11 +65,6 @@ abstract class AbstractProductConcreteTable extends AbstractTable
         $this->setTableIdentifier(static::TABLE_IDENTIFIER);
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config->setHeader([
@@ -97,11 +92,6 @@ abstract class AbstractProductConcreteTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return string
-     */
     protected function getTableUrl(TableConfiguration $config): string
     {
         $tableUrl = ($config->getUrl() === null) ? $this->defaultUrl : $config->getUrl();
@@ -152,9 +142,6 @@ abstract class AbstractProductConcreteTable extends AbstractTable
         ];
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function buildQuery(): SpyProductQuery
     {
         $localeTransfer = $this->localeFacade->getCurrentLocale();
@@ -177,18 +164,10 @@ abstract class AbstractProductConcreteTable extends AbstractTable
         return $this->filterQuery($this->spyProductQuery);
     }
 
-    /**
-     * @return int
-     */
     protected function getIdProductList(): int
     {
         return $this->request->query->getInt(ProductListAbstractController::URL_PARAM_ID_PRODUCT_LIST, 0);
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productQuery
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     abstract protected function filterQuery(SpyProductQuery $productQuery): SpyProductQuery;
 }

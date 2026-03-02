@@ -24,10 +24,6 @@ class ProductListImporter implements ProductListImporterInterface
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Dependency\Service\ProductListGuiToUtilCsvServiceInterface $csvService
-     * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductFacadeInterface $productFacade
-     */
     public function __construct(
         ProductListGuiToUtilCsvServiceInterface $csvService,
         ProductListGuiToProductFacadeInterface $productFacade
@@ -36,12 +32,6 @@ class ProductListImporter implements ProductListImporterInterface
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $productsConcreteCsv
-     * @param \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer $productConcreteRelationTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer
-     */
     public function importFromCsvFile(
         UploadedFile $productsConcreteCsv,
         ProductListProductConcreteRelationTransfer $productConcreteRelationTransfer

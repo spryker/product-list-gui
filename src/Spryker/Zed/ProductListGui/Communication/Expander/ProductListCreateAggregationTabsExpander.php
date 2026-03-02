@@ -42,11 +42,6 @@ class ProductListCreateAggregationTabsExpander implements ProductListCreateAggre
      */
     public const PRODUCTS_TAB_TEMPLATE = '@ProductListGui/_partials/_tabs/product-list-product-concrete-relation.twig';
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     public function expandWithProductListAssignmentTabs(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         $this->addProductListCategoryRelationTab($tabsViewTransfer)

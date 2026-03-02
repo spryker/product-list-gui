@@ -34,19 +34,11 @@ abstract class AbstractProductListAggregationTabs extends AbstractTabs
      */
     protected $productListCreateAggregationTabsExpander;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Communication\Expander\ProductListCreateAggregationTabsExpanderInterface $productListCreateAggregationTabsExpander
-     */
     public function __construct(ProductListCreateAggregationTabsExpanderInterface $productListCreateAggregationTabsExpander)
     {
         $this->productListCreateAggregationTabsExpander = $productListCreateAggregationTabsExpander;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     protected function build(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         $this->addGeneralInformationTab($tabsViewTransfer)

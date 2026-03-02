@@ -17,19 +17,11 @@ class ProductListFormDataProvider
      */
     protected $productListFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductListFacadeInterface $productListFacade
-     */
     public function __construct(ProductListGuiToProductListFacadeInterface $productListFacade)
     {
         $this->productListFacade = $productListFacade;
     }
 
-    /**
-     * @param int|null $idProductList
-     *
-     * @return \Generated\Shared\Transfer\ProductListTransfer
-     */
     public function getData(?int $idProductList = null): ProductListTransfer
     {
         $productListTransfer = new ProductListTransfer();

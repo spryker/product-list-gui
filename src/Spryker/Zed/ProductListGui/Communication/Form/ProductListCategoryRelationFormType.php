@@ -31,11 +31,6 @@ class ProductListCategoryRelationFormType extends AbstractType
      */
     public const BLOCK_PREFIX = 'productListCategoryRelation';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
@@ -48,9 +43,6 @@ class ProductListCategoryRelationFormType extends AbstractType
         $resolver->setRequired(ProductListAggregateFormType::OPTION_CATEGORY_IDS);
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return static::BLOCK_PREFIX;

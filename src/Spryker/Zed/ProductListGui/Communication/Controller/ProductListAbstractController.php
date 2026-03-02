@@ -31,11 +31,6 @@ class ProductListAbstractController extends AbstractController
      */
     public const URL_PARAM_ID_PRODUCT_LIST = 'id-product-list';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\Form\FormInterface
-     */
     protected function createProductListAggregateForm(Request $request): FormInterface
     {
         $idProductList = $request->query->getInt(static::URL_PARAM_ID_PRODUCT_LIST);
@@ -53,12 +48,6 @@ class ProductListAbstractController extends AbstractController
         return $aggregateForm;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Symfony\Component\Form\FormInterface $aggregateForm
-     *
-     * @return \Generated\Shared\Transfer\ProductListTransfer|null
-     */
     protected function findProductListTransfer(
         Request $request,
         FormInterface $aggregateForm
@@ -87,11 +76,6 @@ class ProductListAbstractController extends AbstractController
         return $productListTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListResponseTransfer $productListResponseTransfer
-     *
-     * @return void
-     */
     protected function addMessagesFromProductListResponseTransfer(ProductListResponseTransfer $productListResponseTransfer): void
     {
         foreach ($productListResponseTransfer->getMessages() as $messageTransfer) {
@@ -105,12 +89,6 @@ class ProductListAbstractController extends AbstractController
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer $productListProductConcreteRelationTransfer
-     * @param \Symfony\Component\Form\FormInterface $form
-     *
-     * @return \Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer
-     */
     protected function getProductListProductConcreteRelationFromCsv(
         ProductListProductConcreteRelationTransfer $productListProductConcreteRelationTransfer,
         FormInterface $form
@@ -130,11 +108,6 @@ class ProductListAbstractController extends AbstractController
         return $productListProductConcreteRelationTransfer;
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $productListAggregateForm
-     *
-     * @return array
-     */
     protected function prepareTemplateVariables(FormInterface $productListAggregateForm): array
     {
         $assignedProductConcreteRelationTabs = $this->getFactory()->createAssignedProductConcreteRelationTabs();

@@ -18,10 +18,5 @@ interface ProductListAggregateFormDataProviderExpanderInterface
      */
     public function expandOptions(array $options): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListAggregateFormTransfer $productListAggregateFormTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListAggregateFormTransfer
-     */
     public function expandProductListAggregateFormData(ProductListAggregateFormTransfer $productListAggregateFormTransfer): ProductListAggregateFormTransfer;
 }

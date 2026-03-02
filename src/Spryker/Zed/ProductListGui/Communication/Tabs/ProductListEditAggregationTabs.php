@@ -27,11 +27,6 @@ class ProductListEditAggregationTabs extends AbstractProductListAggregationTabs
      */
     protected const USED_BY_TAB_TEMPLATE = '@ProductListGui/_partials/_tabs/used-by.twig';
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     protected function build(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         $tabsViewTransfer = parent::build($tabsViewTransfer);

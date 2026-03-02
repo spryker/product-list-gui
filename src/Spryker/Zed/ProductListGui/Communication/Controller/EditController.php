@@ -69,9 +69,6 @@ class EditController extends ProductListAbstractController
         return $this->redirectResponse($redirectUrl);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function availableProductConcreteTableAction(): JsonResponse
     {
         $availableProductConcreteTable = $this->getFactory()->createAvailableProductConcreteTable();
@@ -81,9 +78,6 @@ class EditController extends ProductListAbstractController
         );
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function assignedProductConcreteTableAction(): JsonResponse
     {
         $assignedProductConcreteTable = $this->getFactory()->createAssignedProductConcreteTable();

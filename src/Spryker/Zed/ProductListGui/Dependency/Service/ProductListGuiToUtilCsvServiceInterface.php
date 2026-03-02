@@ -20,10 +20,5 @@ interface ProductListGuiToUtilCsvServiceInterface
      */
     public function readUploadedFile(UploadedFile $file): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\CsvFileTransfer $csvFileTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
-     */
     public function exportFile(CsvFileTransfer $csvFileTransfer): StreamedResponse;
 }

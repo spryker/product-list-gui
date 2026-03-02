@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\ButtonCollectionTransfer;
 
 interface TopButtonsProviderInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\ButtonCollectionTransfer
-     */
     public function getTopButtons(): ButtonCollectionTransfer;
 }

@@ -22,10 +22,6 @@ class ProductListAggregateFormDataProvider
      */
     protected $productListAggregateFormDataProviderExpander;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Communication\Form\DataProvider\ProductListFormDataProvider $productListFormDataProvider
-     * @param \Spryker\Zed\ProductListGui\Communication\Expander\ProductListAggregateFormDataProviderExpanderInterface $productListAggregateFormDataProviderExpander
-     */
     public function __construct(
         ProductListFormDataProvider $productListFormDataProvider,
         ProductListAggregateFormDataProviderExpanderInterface $productListAggregateFormDataProviderExpander
@@ -34,11 +30,6 @@ class ProductListAggregateFormDataProvider
         $this->productListAggregateFormDataProviderExpander = $productListAggregateFormDataProviderExpander;
     }
 
-    /**
-     * @param int|null $idProductList
-     *
-     * @return \Generated\Shared\Transfer\ProductListAggregateFormTransfer
-     */
     public function getData(?int $idProductList = null): ProductListAggregateFormTransfer
     {
         $productListTransfer = $this->productListFormDataProvider->getData($idProductList);

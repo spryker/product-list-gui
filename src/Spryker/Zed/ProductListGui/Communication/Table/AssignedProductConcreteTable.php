@@ -19,11 +19,6 @@ class AssignedProductConcreteTable extends AbstractProductConcreteTable
 
     protected const TABLE_IDENTIFIER = self::DEFAULT_URL;
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config = parent::configure($config);
@@ -40,11 +35,6 @@ class AssignedProductConcreteTable extends AbstractProductConcreteTable
         return $config;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productQuery
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function filterQuery(SpyProductQuery $productQuery): SpyProductQuery
     {
         $productQuery

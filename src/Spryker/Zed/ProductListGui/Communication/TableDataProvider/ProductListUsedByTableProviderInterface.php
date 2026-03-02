@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\ProductListUsedByTableTransfer;
 
 interface ProductListUsedByTableProviderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductListTransfer $productListTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListUsedByTableTransfer
-     */
     public function getTableData(ProductListTransfer $productListTransfer): ProductListUsedByTableTransfer;
 }

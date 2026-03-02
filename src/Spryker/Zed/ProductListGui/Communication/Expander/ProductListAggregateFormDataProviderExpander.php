@@ -18,9 +18,6 @@ class ProductListAggregateFormDataProviderExpander implements ProductListAggrega
      */
     protected $productListCategoryRelationFormDataProvider;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Communication\Form\DataProvider\ProductListCategoryRelationFormDataProvider $productListCategoryRelationFormDataProvider
-     */
     public function __construct(ProductListCategoryRelationFormDataProvider $productListCategoryRelationFormDataProvider)
     {
         $this->productListCategoryRelationFormDataProvider = $productListCategoryRelationFormDataProvider;
@@ -36,11 +33,6 @@ class ProductListAggregateFormDataProviderExpander implements ProductListAggrega
         return array_merge($options, $this->productListCategoryRelationFormDataProvider->getOptions());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListAggregateFormTransfer $productListAggregateFormTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListAggregateFormTransfer
-     */
     public function expandProductListAggregateFormData(ProductListAggregateFormTransfer $productListAggregateFormTransfer): ProductListAggregateFormTransfer
     {
         $productListAggregateFormTransfer->requireProductList();

@@ -45,9 +45,6 @@ class TopButtonsProvider implements TopButtonsProviderInterface
         $this->productListTopButtonsExpanderPlugins = $productListTopButtonsExpanderPlugins;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ButtonCollectionTransfer
-     */
     public function getTopButtons(): ButtonCollectionTransfer
     {
         $buttonCollectionTransfer = $this->addDefaultButtons();
@@ -55,9 +52,6 @@ class TopButtonsProvider implements TopButtonsProviderInterface
         return $this->expandButtonCollectionTransfer($buttonCollectionTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ButtonCollectionTransfer
-     */
     protected function addDefaultButtons(): ButtonCollectionTransfer
     {
         $buttonCollectionTransfer = new ButtonCollectionTransfer();
@@ -67,11 +61,6 @@ class TopButtonsProvider implements TopButtonsProviderInterface
         return $buttonCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ButtonCollectionTransfer $buttonCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ButtonCollectionTransfer
-     */
     protected function addCreateProductListButton(ButtonCollectionTransfer $buttonCollectionTransfer): ButtonCollectionTransfer
     {
         $buttonTransfer = (new ButtonTransfer())
@@ -82,11 +71,6 @@ class TopButtonsProvider implements TopButtonsProviderInterface
         return $buttonCollectionTransfer->addButton($buttonTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ButtonCollectionTransfer $buttonCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ButtonCollectionTransfer
-     */
     protected function expandButtonCollectionTransfer(ButtonCollectionTransfer $buttonCollectionTransfer): ButtonCollectionTransfer
     {
         foreach ($this->productListTopButtonsExpanderPlugins as $productListTopButtonsExpanderPlugin) {

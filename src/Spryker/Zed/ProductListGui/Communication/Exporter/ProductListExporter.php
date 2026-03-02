@@ -36,10 +36,6 @@ class ProductListExporter implements ProductListExporterInterface
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductListGui\Dependency\Service\ProductListGuiToUtilCsvServiceInterface $csvService
-     * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductFacadeInterface $productFacade
-     */
     public function __construct(
         ProductListGuiToUtilCsvServiceInterface $csvService,
         ProductListGuiToProductFacadeInterface $productFacade
@@ -48,11 +44,6 @@ class ProductListExporter implements ProductListExporterInterface
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListTransfer $productListTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
-     */
     public function exportToCsvFile(ProductListTransfer $productListTransfer): StreamedResponse
     {
         $productIds = $productListTransfer->getProductListProductConcreteRelation()->getProductIds();

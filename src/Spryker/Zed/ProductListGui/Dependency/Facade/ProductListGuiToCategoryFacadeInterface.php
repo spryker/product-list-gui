@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\LocaleTransfer;
 
 interface ProductListGuiToCategoryFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryCollectionTransfer
-     */
     public function getAllCategoryCollection(LocaleTransfer $localeTransfer): CategoryCollectionTransfer;
 }

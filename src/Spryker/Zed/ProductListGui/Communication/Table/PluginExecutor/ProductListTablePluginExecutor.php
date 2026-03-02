@@ -73,11 +73,6 @@ class ProductListTablePluginExecutor implements ProductListTablePluginExecutorIn
         return $buttons;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     public function executeTableConfigExpanderPlugins(TableConfiguration $config): TableConfiguration
     {
         foreach ($this->productListTableConfigExpanderPlugins as $productListTableConfigExpanderPlugin) {
@@ -87,11 +82,6 @@ class ProductListTablePluginExecutor implements ProductListTablePluginExecutorIn
         return $config;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QueryCriteriaTransfer $queryCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\QueryCriteriaTransfer
-     */
     public function executeTableQueryCriteriaExpanderPlugins(QueryCriteriaTransfer $queryCriteriaTransfer): QueryCriteriaTransfer
     {
         foreach ($this->productListTableQueryExpanderPlugins as $productListTableQueryExpanderPlugin) {
@@ -101,9 +91,6 @@ class ProductListTablePluginExecutor implements ProductListTablePluginExecutorIn
         return $queryCriteriaTransfer;
     }
 
-    /**
-     * @return array
-     */
     public function executeTableHeaderExpanderPlugins(): array
     {
         $expandedData = [];
@@ -114,11 +101,6 @@ class ProductListTablePluginExecutor implements ProductListTablePluginExecutorIn
         return $expandedData;
     }
 
-    /**
-     * @param array $item
-     *
-     * @return array
-     */
     public function executeTableDataExpanderPlugins(array $item): array
     {
         $expandedData = [];

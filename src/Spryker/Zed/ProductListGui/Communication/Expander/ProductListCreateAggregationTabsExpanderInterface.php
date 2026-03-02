@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\TabsViewTransfer;
 
 interface ProductListCreateAggregationTabsExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     public function expandWithProductListAssignmentTabs(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer;
 }

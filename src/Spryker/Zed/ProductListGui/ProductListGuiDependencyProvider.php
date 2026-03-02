@@ -92,11 +92,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_PRODUCT_LIST_USED_BY_TABLE_EXPANDER = 'PLUGINS_PRODUCT_LIST_USED_BY_TABLE_EXPANDER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
@@ -122,11 +117,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_LIST, $container->factory(function () {
@@ -136,11 +126,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT, $container->factory(function () {
@@ -150,11 +135,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_LIST, function ($container) {
@@ -164,11 +144,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCategoryFacade(Container $container): Container
     {
         $container->set(static::FACADE_CATEGORY, function ($container) {
@@ -178,11 +153,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT, function ($container) {
@@ -192,11 +162,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilCsvService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_CSV, function (Container $container) {
@@ -208,11 +173,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function ($container) {
@@ -222,11 +182,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTableActionExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TABLE_ACTION_EXPANDER, function () {
@@ -236,11 +191,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTableConfigExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TABLE_CONFIG_EXPANDER, function () {
@@ -250,11 +200,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTableQueryCriteriaExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TABLE_QUERY_CRITERIA_EXPANDER, function () {
@@ -264,11 +209,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTableDataExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TABLE_DATA_EXPANDER, function () {
@@ -278,11 +218,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTableHeaderExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TABLE_HEADER_EXPANDER, function () {
@@ -292,11 +227,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListTopButtonsExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_TOP_BUTTONS_EXPANDER, function () {
@@ -306,11 +236,6 @@ class ProductListGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListUsedByTableExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_LIST_USED_BY_TABLE_EXPANDER, function () {
