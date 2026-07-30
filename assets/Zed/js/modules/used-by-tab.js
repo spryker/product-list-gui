@@ -7,11 +7,15 @@ $(document).ready(function () {
 
         clickedButtonUrl = $(this).attr('href');
 
-        var confirmModal = new bootstrap.Modal($('#confirmation-modal-window'));
+        const confirmModal = new bootstrap.Modal($('#confirmation-modal-window'));
         confirmModal.show();
     });
 
     $('.js-btn-confirm').on('click', function () {
-        window.location.href = clickedButtonUrl;
+        var redirectUrl = new URL(clickedButtonUrl, window.location.origin);
+
+        if (redirectUrl.origin === window.location.origin) {
+            window.location.href = redirectUrl.href;
+        }
     });
 });
