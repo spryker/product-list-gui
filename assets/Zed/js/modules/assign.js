@@ -5,6 +5,13 @@
 
 'use strict';
 
-var SelectTableAPI = require('./select-table-api');
+/**
+ * @deprecated Will be removed in the next major version.
+ *
+ * Table selection is now configured from PHP via `setTableAttributes(['data-selectable' => ...])`.
+ * This file is intentionally a no-op: it is kept only so that projects referencing it keep
+ * building. Re-running the old wiring here would initialise the table a second time, on top of
+ * the one the Gui table library already created.
+ */
 
-module.exports = SelectTableAPI;
+module.exports = require('./select-table-api');
