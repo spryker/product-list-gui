@@ -66,16 +66,18 @@ var SelectTableAPI = function () {
      * Draw method of DataTable. Fires every time table rerender.
      */
     this.drawProductsTable = function () {
-        var self = this,
-            productTableData = self.$productTable.DataTable();
+        var self = this;
+        var productTableData = self.$productTable.DataTable();
 
         productTableData.on('draw', function (event, settings) {
             self.updateCheckboxes();
             self.mapEventsToCheckboxes(productTableData, $(self.checkboxSelector));
 
-            if (self.$inputWithSelectedProducts && initialSelectedProductsData) {
-                var initialSelectedProductsData = self.$inputWithSelectedProducts.val();
+            var initialSelectedProductsData = self.$inputWithSelectedProducts
+                ? self.$inputWithSelectedProducts.val()
+                : '';
 
+            if (initialSelectedProductsData) {
                 self.selectProductsOnLoad(initialSelectedProductsData);
                 self.$inputWithSelectedProducts.val('');
             }
@@ -92,9 +94,9 @@ var SelectTableAPI = function () {
 
         checkboxes.off('change');
         checkboxes.on('change', function () {
-            var rowIndex = checkboxes.index($(this)),
-                rowData = productTableData.data()[rowIndex],
-                id = rowData[0];
+            var rowIndex = checkboxes.index($(this));
+            var rowData = productTableData.data()[rowIndex];
+            var id = rowData[0];
 
             if ($(this).is(':checked')) {
                 return self.addRow(rowData);
@@ -108,13 +110,13 @@ var SelectTableAPI = function () {
      * Check for selected products in product table.
      */
     this.updateCheckboxes = function () {
-        var productTable = this.$productTable.DataTable(),
-            productTableData = productTable.data();
+        var productTable = this.$productTable.DataTable();
+        var productTableData = productTable.data();
 
         for (var i = 0; i < productTableData.length; i++) {
-            var productItemData = productTableData[i],
-                productItemId = productItemData[0],
-                checkBox = $(productTable.row(i).node()).find('[type="checkbox"]');
+            var productItemData = productTableData[i];
+            var productItemId = productItemData[0];
+            var checkBox = $(productTable.row(i).node()).find('[type="checkbox"]');
 
             checkBox.prop('checked', false);
 
@@ -195,8 +197,8 @@ var SelectTableAPI = function () {
      * Add event for remove button to remove row from array with all selected items.
      */
     this.addRemoveButtonClickHandler = function () {
-        var self = this,
-            selectedTable = this.$selectedProductsTable;
+        var self = this;
+        var selectedTable = this.$selectedProductsTable;
 
         selectedTable.on('click', this.removeBtnSelector, function (e) {
             e.preventDefault();
