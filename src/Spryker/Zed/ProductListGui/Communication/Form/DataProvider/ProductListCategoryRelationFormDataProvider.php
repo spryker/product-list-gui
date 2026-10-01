@@ -7,20 +7,12 @@
 
 namespace Spryker\Zed\ProductListGui\Communication\Form\DataProvider;
 
-use Generated\Shared\Transfer\ProductListCategoryRelationTransfer;
-use Generated\Shared\Transfer\ProductListTransfer;
 use Spryker\Zed\ProductListGui\Communication\Form\ProductListAggregateFormType;
 use Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToCategoryFacadeInterface;
 use Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToLocaleFacadeInterface;
-use Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductListFacadeInterface;
 
 class ProductListCategoryRelationFormDataProvider
 {
-    /**
-     * @var \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductListFacadeInterface
-     */
-    protected $productListFacade;
-
     /**
      * @var \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToCategoryFacadeInterface
      */
@@ -34,36 +26,15 @@ class ProductListCategoryRelationFormDataProvider
     /**
      * @module ProductCategory
      *
-     * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToProductListFacadeInterface $productListFacade
      * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToCategoryFacadeInterface $categoryFacade
      * @param \Spryker\Zed\ProductListGui\Dependency\Facade\ProductListGuiToLocaleFacadeInterface $localeFacade
      */
     public function __construct(
-        ProductListGuiToProductListFacadeInterface $productListFacade,
         ProductListGuiToCategoryFacadeInterface $categoryFacade,
         ProductListGuiToLocaleFacadeInterface $localeFacade
     ) {
-        $this->productListFacade = $productListFacade;
         $this->categoryFacade = $categoryFacade;
         $this->localeFacade = $localeFacade;
-    }
-
-    public function getData(?int $idProductList = null): ProductListCategoryRelationTransfer
-    {
-        $productListCategoryRelationTransfer = new ProductListCategoryRelationTransfer();
-
-        if (!$idProductList) {
-            return $productListCategoryRelationTransfer;
-        }
-
-        $productListTransfer = (new ProductListTransfer())->setIdProductList($idProductList);
-        $productListCategoryRelation = $this->productListFacade
-            ->getProductListById($productListTransfer)
-            ->getProductListCategoryRelation();
-
-        $productListCategoryRelation->setIdProductList($productListTransfer->getIdProductList());
-
-        return $productListCategoryRelation;
     }
 
     /**

@@ -8,6 +8,7 @@
 namespace Spryker\Zed\ProductListGui\Communication\Expander;
 
 use Generated\Shared\Transfer\ProductListAggregateFormTransfer;
+use Generated\Shared\Transfer\ProductListCategoryRelationTransfer;
 use Generated\Shared\Transfer\ProductListProductConcreteRelationTransfer;
 use Spryker\Zed\ProductListGui\Communication\Form\DataProvider\ProductListCategoryRelationFormDataProvider;
 
@@ -43,8 +44,8 @@ class ProductListAggregateFormDataProviderExpander implements ProductListAggrega
             $productListTransfer->setProductListProductConcreteRelation(new ProductListProductConcreteRelationTransfer());
         }
 
-        $productListCategoryRelationTransfer = $this->productListCategoryRelationFormDataProvider
-            ->getData($productListTransfer->getIdProductList());
+        $productListCategoryRelationTransfer = ($productListTransfer->getProductListCategoryRelation() ?? new ProductListCategoryRelationTransfer())
+            ->setIdProductList($productListTransfer->getIdProductList());
 
         $assignedProductIds = implode(',', $productListTransfer->getProductListProductConcreteRelation()->getProductIds());
 

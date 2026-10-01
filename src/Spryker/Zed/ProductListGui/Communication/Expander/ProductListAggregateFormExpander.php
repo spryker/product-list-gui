@@ -33,8 +33,6 @@ class ProductListAggregateFormExpander implements ProductListAggregateFormExpand
 
     public function postSubmitEventHandler(FormEvent $formEvent): void
     {
-        $data = $formEvent->getData();
-
         $assignedProductIdsData = $this->getFieldValue(ProductListProductConcreteRelationFormType::FIELD_ASSIGNED_PRODUCT_IDS, $formEvent);
         $productIdsToBeAssignedData = $this->getFieldValue(ProductListProductConcreteRelationFormType::FIELD_PRODUCT_IDS_TO_BE_ASSIGNED, $formEvent);
         $productIdsToBeDeassignedData = $this->getFieldValue(ProductListProductConcreteRelationFormType::FIELD_PRODUCT_IDS_TO_BE_DEASSIGNED, $formEvent);
@@ -60,8 +58,6 @@ class ProductListAggregateFormExpander implements ProductListAggregateFormExpand
         /** @var \Generated\Shared\Transfer\ProductListAggregateFormTransfer $productListProductConcreteRelationTransfer */
         $productListProductConcreteRelationTransfer = $this->getFieldValue(ProductListAggregateFormTransfer::PRODUCT_LIST_PRODUCT_CONCRETE_RELATION, $formEvent);
         $productListProductConcreteRelationTransfer->offsetSet(ProductListProductConcreteRelationFormType::PRODUCT_IDS, $assignedProductIds);
-
-        $formEvent->setData($data);
     }
 
     /**

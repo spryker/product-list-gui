@@ -147,7 +147,6 @@ class ProductListGuiCommunicationFactory extends AbstractCommunicationFactory
     public function createProductListCategoryRelationFormDataProvider()
     {
         return new ProductListCategoryRelationFormDataProvider(
-            $this->getProductListFacade(),
             $this->getCategoryFacade(),
             $this->getLocaleFacade(),
         );
